@@ -37,10 +37,13 @@ const ShowcaseCard = ({ title, creator, thumbnail, price, avatar }) => (
         border="1px solid rgba(255,255,255,0.18 )"
         borderRadius="md"
       >
-        <Box flex="1" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
-          <Heading as="h1" size="xs">
-            {title}
-          </Heading>
+        <Box flex="1" overflow="hidden">
+          <Box whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
+            <Heading as="h1" size="xs">
+              {title}
+            </Heading>
+          </Box>
+
           <Text fontSize="10px">
             Current Price{" "}
             <Text as="span" fontSize="xs" color="pink.500" fontWeight="bold">
