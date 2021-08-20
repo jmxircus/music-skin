@@ -20,8 +20,8 @@ const Dashboard = () => (
       </Box>
       <Box bg="blue.500" p="2">
         <Grid templateColumns={{ base: "auto", md: "repeat(3, 1fr)" }} gap="2">
-          {SampleItems.map((item) => (
-            <ShowcaseCard {...item} />
+          {SampleItems.map((item, index) => (
+            <ShowcaseCard key={index} {...item} />
           ))}
         </Grid>
       </Box>
