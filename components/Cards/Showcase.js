@@ -11,7 +11,7 @@ const glassmorphismStyle = {
 const ShowcaseCard = ({ title, creator, thumbnail, price, avatar }) => (
   <Box
     w="full"
-    h="150px"
+    h="200px"
     bgColor="black"
     borderRadius="md"
     padding={4}
