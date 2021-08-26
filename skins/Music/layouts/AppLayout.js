@@ -6,17 +6,15 @@ const AppLayout = ({ children }) => {
   const [state, actions] = useGlobal(["user"])
 
   return (
-    <>
-      <Box>
-        <AppHeader>
-          <AppBrand />
-          <Spacer display={{ base: "none", md: "flex" }} />
-          <Button display={{ base: "none", md: "flex" }}>Connect Wallet</Button>
-        </AppHeader>
-        <AppSpacer />
-        {children}
-      </Box>
-    </>
+    <Box>
+      <AppHeader>
+        <AppBrand />
+        <Spacer display={{ base: "none", md: "flex" }} />
+        <Button display={{ base: "none", md: "flex" }}>Connect Wallet</Button>
+      </AppHeader>
+      <AppSpacer />
+      {children}
+    </Box>
   )
 }
 

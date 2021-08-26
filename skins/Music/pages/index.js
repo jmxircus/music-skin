@@ -1,12 +1,14 @@
-import { useEffect } from "react"
-import { useRouter } from "next/router"
-import Button from "../components/Button"
-import useGlobal from "../hooks/useGlobal"
-import Link from "next/link"
-import AppLayout from "../layouts/AppLayout"
-import { useColorMode } from "@chakra-ui/react"
+import { Box, useColorMode } from "@chakra-ui/react"
 import { useTranslations } from "next-intl"
+import { useRouter } from "next/router"
+import { useEffect } from "react"
+import ArtistList from "../collections/ArtistList"
+import GenresList from "../collections/GenresList"
+import TracksList from "../collections/TracksList"
+import SearchBanner from "../components/SearchBanner"
 import VideoBackground from "../components/VideoBackground"
+import useGlobal from "../hooks/useGlobal"
+import AppLayout from "../layouts/AppLayout"
 
 export default function Index({ market }) {
   const { colorMode, toggleColorMode } = useColorMode()
@@ -19,11 +21,14 @@ export default function Index({ market }) {
   }, [])
 
   return (
-    <>
-      <VideoBackground />
-      <AppLayout>
-        <h1>{t("name")}</h1>
-      </AppLayout>
-    </>
+    <AppLayout>
+
+      <SearchBanner />
+      <TracksList />
+      <TracksList title="Trending Tracks" />
+      <ArtistList />
+      <GenresList />
+
+    </AppLayout>
   )
 }

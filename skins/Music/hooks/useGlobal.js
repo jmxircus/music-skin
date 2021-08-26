@@ -18,6 +18,8 @@ const nftItem = {
 
 const nftItems = Array.from({ length: 12 }, (value, key) => nftItem)
 
+const categories = ["All", "Tracks", "Musicians", "Playlists", "Albums", "Sound Kits", "Services"]
+
 const actions = {
   addItems: (store) => {
     console.log("STORE", store.state, store.actions)
@@ -26,7 +28,8 @@ const actions = {
 }
 
 const initialState = {
-  items: nftItems
+  items: nftItems,
+  categories
 }
 
 const useGlobal = globalStore(React, initialState, actions)

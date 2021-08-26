@@ -32,6 +32,7 @@ import React from "react"
 import { HiMenuAlt3 } from "react-icons/hi"
 import { IoSearchOutline } from "react-icons/io5"
 import { TiArrowSortedDown } from "react-icons/ti"
+import useGlobal from "../hooks/useGlobal"
 
 export const AppHeader = ({ children }) => (
   <Box
@@ -41,6 +42,7 @@ export const AppHeader = ({ children }) => (
     pos="fixed"
     w="full"
     boxShadow="dark-lg"
+    zIndex="999"
   >
     <Container maxW="full">
       <HStack>{children}</HStack>
@@ -78,9 +80,11 @@ export const AppBrand = ({ logo, title = "Xircus" }) => {
   )
 }
 
-const categories = ["All", "Tracks", "Musicians", "Playlists", "Albums", "Sound Kits", "Services"]
-export const SearchBar = ({ category = categories, ...rest }) => (
-  <InputGroup borderRadius="lg" {...rest}>
+
+export const SearchBar = (props) => {
+  const [state, actions] = useGlobal(['categories'])
+
+  return (<InputGroup borderRadius="lg" {...props}>
     <InputLeftElement pointerEvents="none">
       <Icon as={IoSearchOutline} />
     </InputLeftElement>
@@ -101,14 +105,14 @@ export const SearchBar = ({ category = categories, ...rest }) => (
           All
         </MenuButton>
         <MenuList>
-          {(category || []).map((item, index) => (
+          {(state.categories || []).map((item, index) => (
             <MenuItem key={index}>{item}</MenuItem>
           ))}
         </MenuList>
       </Menu>
     </InputRightElement>
-  </InputGroup>
-)
+  </InputGroup>)
+}
 
 const menus = ["Discover", "Artists", "Tracks", "Genres", "Subscription", "About"]
 const NavigationLinks = ({ navItems = menus, forceColumn }) => (
